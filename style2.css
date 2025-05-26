@@ -1,0 +1,151 @@
+/* style.css */
+
+/* Reset básico para melhor consistência entre navegadores */
+body, h1, h2, p, img {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Garante que padding e border não aumentem o tamanho final do elemento */
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #B57170; /* Um cinza claro para o fundo */
+    color: #333;
+    line-height: 1.6;
+    display: flex; /* Para centralizar o conteúdo verticalmente */
+    flex-direction: column;
+    min-height: 100vh; /* Ocupa a altura total da viewport */
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Sombra sutil */
+}
+
+header h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+header p {
+    font-size: 1.1em;
+    opacity: 0.8;
+}
+
+.gallery-container {
+    display: flex; /* Usa Flexbox para organizar as seções */
+    flex-wrap: wrap; /* Permite que as seções quebrem para a próxima linha em telas menores */
+    justify-content: center; /* Centraliza as seções horizontalmente */
+    gap: 30px; /* Espaçamento entre as seções */
+    padding: 40px 20px;
+    flex-grow: 1; /* Permite que o conteúdo principal ocupe o espaço restante */
+}
+
+.image-section {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* Sombra mais pronunciada para as caixas de imagem */
+    padding: 25px;
+    width: 100%; /* Largura padrão para mobile */
+    /* NOVA LARGURA MÁXIMA para imagens menores (50% de 450px = 225px) */
+    max-width: 225px;
+    text-align: center;
+    transition: transform 0.3s ease-in-out; /* Efeito de transição ao passar o mouse */
+}
+
+.image-section:hover {
+    transform: translateY(-5px); /* Efeito de "levantar" ao passar o mouse */
+}
+
+.image-section h2 {
+    font-size: 1.8em;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+.image-section img {
+    max-width: 100%; /* Garante que a imagem se ajuste à largura da sua seção */
+    height: auto; /* Mantém a proporção da imagem */
+    border-radius: 5px; /* Bordas levemente arredondadas para as imagens */
+    margin-bottom: 15px;
+    border: 1px solid #ddd; /* Uma borda sutil na imagem */
+}
+
+.image-section p {
+    font-size: 1em;
+    color: #666;
+}
+
+/* ESTILOS PARA A NOVA ÁREA DE TEXTO - AJUSTADO PARA CENTRALIZAR COM AS IMAGENS */
+.text-area-section {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    padding: 30px;
+    width: 100%; /* Ocupa a largura total na linha */
+    /* AJUSTE A LARGURA MÁXIMA PARA FICAR IGUAL OU PRÓXIMA À LARGURA TOTAL DAS DUAS IMAGENS E O GAP */
+    max-width: calc(2 * 225px + 30px); /* Largura de 2 imagens + o gap entre elas */
+    text-align: center;
+    margin-top: 30px; /* Espaço acima da seção */
+}
+
+.text-area-section h2 {
+    font-size: 2em;
+    color: #444;
+    margin-bottom: 20px;
+}
+
+#myTextArea {
+    width: calc(100% - 20px); /* Ocupa quase toda a largura da seção, com algum padding */
+    min-height: 200px; /* Altura mínima para a área de texto */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: 'Georgia', serif; /* Uma fonte mais adequada para texto longo */
+    font-size: 1.1em;
+    line-height: 1.5;
+    resize: vertical; /* Permite ao usuário redimensionar verticalmente */
+    outline: none; /* Remove o contorno azul ao focar */
+}
+
+#myTextArea:focus {
+    border-color: #007bff; /* Mudar a borda ao focar */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: auto; /* Empurra o footer para o final da página */
+}
+
+/* Responsividade básica para telas menores */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2em;
+    }
+
+    .image-section {
+        padding: 20px;
+        max-width: 90%; /* Ajuste para mobile, permitindo que a imagem se ajuste ao container */
+    }
+
+    .image-section h2 {
+        font-size: 1.5em;
+    }
+
+    .text-area-section {
+        padding: 20px;
+        /* No mobile, a área de texto ocupa 90% da largura, assim como as imagens */
+        max-width: 90%;
+    }
+
+    #myTextArea {
+        width: 100%; /* Ocupa toda a largura disponível no mobile */
+    }
+}
